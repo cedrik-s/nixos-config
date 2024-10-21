@@ -30,7 +30,7 @@
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
 
-  programs.zsh.enable = true;  
+  programs.zsh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -50,8 +50,11 @@
       enable = true;
       userName = "Cedrik Schmiedinghoff";
       userEmail = "cedrik.schmiedinghoff@gmail.com";
-      signing.signByDefault = true;
-      signing.key = "~/.ssh/id_ed25519";
+      extraConfig = {
+        commit.gpgsign = true;
+        gpg.format = "ssh";
+        user.signingkey = "~/.ssh/id_ed25519.pub";
+      };
     };
 
     programs.thefuck = {
