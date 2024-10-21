@@ -24,6 +24,7 @@
   environment.systemPackages = [
     pkgs.wget
     pkgs.nodejs_20
+    pkgs.nodePackages.pnpm
   ];
   programs.nix-ld = {
     enable = true;
